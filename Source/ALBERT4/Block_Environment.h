@@ -4,17 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "BaseBlock.h"
-#include "Block_End.generated.h"
+#include "Block_Environment.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ALBERT4_API ABlock_End : public ABaseBlock
+class ALBERT4_API ABlock_Environment : public ABaseBlock
 {
 	GENERATED_BODY()
+
 public:
-	ABlock_End();
-	
+	ABlock_Environment();
 	
 };

@@ -15,8 +15,8 @@ ABaseBlock::ABaseBlock()
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
 	BlockMesh->SetNotifyRigidBodyCollision(true);
 
+	//Finding the material and setting it to the block mesh
 	Walkable = false;
-
 }
 
 // Called when the game starts or when spawned
