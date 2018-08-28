@@ -30,5 +30,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* BlockMesh;
 	
-
+	UPROPERTY(VisibleAnywhere)
+	bool Walkable;
 };
