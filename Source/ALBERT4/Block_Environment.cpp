@@ -3,8 +3,6 @@
 #include "Block_Environment.h"
 
 
-
-
 ABlock_Environment::ABlock_Environment() {
 	//This block is not walkable
 	Walkable = false;
