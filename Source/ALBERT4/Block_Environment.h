@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseBlock.h"
+#include "Block_NotWalkable.h"
 #include "Block_Environment.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ALBERT4_API ABlock_Environment : public ABaseBlock
+class ALBERT4_API ABlock_Environment : public ABlock_NotWalkable
 {
 	GENERATED_BODY()
 
