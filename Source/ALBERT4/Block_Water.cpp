@@ -10,6 +10,8 @@ ABlock_Water::ABlock_Water()
 	PrimaryActorTick.bCanEverTick = true;	
 	// Set water blocks collision profile to overlap all
 	BlockMesh->SetCollisionProfileName(FName("OverlapAll"));
+
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/Water_Block_Mesh.Water_Block_Mesh'")).Object);
 }
 
 // Called when the game starts or when spawned
