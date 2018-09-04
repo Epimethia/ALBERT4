@@ -14,15 +14,13 @@ ABlock_Water::ABlock_Water()
 	// Set mesh variables for use later
 	LogWaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/WaterLog_Block_Mesh.WaterLog_Block_Mesh'")).Object;
 	WaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/Water_Block_Mesh.Water_Block_Mesh'")).Object;
+	BlockMesh->SetStaticMesh(WaterMesh);
 }
 
 // Called when the game starts or when spawned
 void ABlock_Water::BeginPlay()
 {
-	Super::BeginPlay();
-
-	// Set to water mesh at the start
-	BlockMesh->SetStaticMesh(WaterMesh);
+	Super::BeginPlay();	
 }
 
 // Called every frame
@@ -40,15 +38,20 @@ void ABlock_Water::Tick(float DeltaTime)
 		// Check if log overlaps with water block 
 		if (OverlappingActors.Num() > 0)
 		{		
-			// Attempt to destroy the log
-			OverlappingActors[0]->Destroy();
-			//OverlappingActors.Empty();
-			// set the static mesh to logwatermesh
-			BlockMesh->SetStaticMesh(LogWaterMesh);
-			// set as walkable
-			Walkable = true;
+			// check that the log is above the water
+			if (OverlappingActors[0]->GetActorLocation() == this->GetActorLocation() + FVector(0.0f, 0.0f, 100.0f))
+			{
+				// Attempt to destroy the log
+				OverlappingActors[0]->Destroy();
+				//OverlappingActors.Empty();
+				// set the static mesh to logwatermesh
+				BlockMesh->SetStaticMesh(LogWaterMesh);
+				// set as walkable
+				Walkable = true;
 
-			//UE_LOG(LogTemp, Warning, TEXT("Changing Mesh and deleting log."));
+				//UE_LOG(LogTemp, Warning, TEXT("Changing Mesh and deleting log."));
+			}
+			
 		}
 	}		
 }
