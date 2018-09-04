@@ -28,9 +28,11 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* BlockMesh;
-	
+	UStaticMeshComponent* BlockMesh;	
 
 	UPROPERTY(VisibleAnywhere)
 	bool Walkable;
+
+	UPROPERTY(EditAnywhere)
+	AActor* PlayerCharacter;
 };

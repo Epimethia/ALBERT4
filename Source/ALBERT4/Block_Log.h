@@ -3,20 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Block_NotWalkable.h"
-#include "Block_Water.generated.h"
+#include "Block_Interactable.h"
+#include "Block_Log.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class ALBERT4_API ABlock_Water : public ABlock_NotWalkable
+class ALBERT4_API ABlock_Log : public ABlock_Interactable
 {
 	GENERATED_BODY()
-	
+
 public:
 	// Sets default values for this actor's properties
-	ABlock_Water();
+	ABlock_Log();
 
 protected:
 	// Called when the game starts or when spawned
@@ -25,10 +25,9 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
 private:
 	TArray<AActor*> OverlappingActors;
-	bool LogWater; // Bool containing if the water block has had its mesh changed into a waterlog mesh
-	
+
 	
 };
