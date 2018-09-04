@@ -14,7 +14,6 @@ ABaseBlock::ABaseBlock()
 	BlockMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
 	BlockMesh->SetNotifyRigidBodyCollision(true);
-	
 
 	//Finding the material and setting it to the block mesh
 	Walkable = false;

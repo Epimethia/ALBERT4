@@ -13,14 +13,12 @@ ABlock_Crumble::ABlock_Crumble() {
 	Trigger->SetupAttachment(RootComponent);
 	Trigger->bDynamicObstacle = true;
 	Trigger->bGenerateOverlapEvents = true;
+	Trigger->SetCanEverAffectNavigation(false);
 
-	FScriptDelegate DelegateBegin;
-	DelegateBegin.BindUFunction(this, "OnTestOverlapBegin");
-	Trigger->OnComponentBeginOverlap.Add(DelegateBegin);
+	Trigger->OnComponentBeginOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapBegin);
+	Trigger->OnComponentEndOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapEnd);
 
-	FScriptDelegate DelegateEnd;
-	DelegateEnd.BindUFunction(this, "OnTestOverlapEnd");
-	Trigger->OnComponentEndOverlap.Add(DelegateEnd);
+	Walkable = true;
 
 	SetActorLocation(FVector(0.0f, 0.0f, 0.0f));
 	SetActorTickEnabled(true);
@@ -28,8 +26,8 @@ ABlock_Crumble::ABlock_Crumble() {
 
 void ABlock_Crumble::Crumble() {
 	GetWorldTimerManager().SetTimer(FallTimer, this, &ABlock_Crumble::Fall, 1.0f, false);
-
 }
+
 
 void ABlock_Crumble::Fall() {
 	BlockMesh->SetRelativeScale3D(FVector(0.995f, 0.995f, 0.995f));
@@ -37,11 +35,12 @@ void ABlock_Crumble::Fall() {
 	BlockMesh->SetSimulatePhysics(true);
 }
 
-void ABlock_Crumble::OnOverlapBegin(AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult){
+void ABlock_Crumble::OnOverlapBegin(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult){
 	UE_LOG(LogTemp, Warning, TEXT("Colliding"));
+	Crumble();
 }
 
-void ABlock_Crumble::OnOverlapEnd(AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex){
+void ABlock_Crumble::OnOverlapEnd(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex){
 	UE_LOG(LogTemp, Warning, TEXT("No Longer Colliding"));
 }
 

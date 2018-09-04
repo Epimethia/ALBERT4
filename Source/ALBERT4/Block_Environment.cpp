@@ -9,5 +9,5 @@ ABlock_Environment::ABlock_Environment() {
 
 	//Setting the block mesh
 	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/Environment_Block_Mesh.Environment_Block_Mesh'")).Object);
-
+	BlockMesh->SetCanEverAffectNavigation(false);
 }
