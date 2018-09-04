@@ -28,6 +28,7 @@ public:
 
 private:
 	TArray<AActor*> OverlappingActors;
+	UStaticMesh* LogWaterMesh;
 	bool LogWater; // Bool containing if the water block has had its mesh changed into a waterlog mesh
 	
 	
