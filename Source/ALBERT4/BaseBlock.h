@@ -30,7 +30,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* BlockMesh;	
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(BlueprintReadOnly)
 	bool Walkable;
 
 	UPROPERTY(EditAnywhere)
