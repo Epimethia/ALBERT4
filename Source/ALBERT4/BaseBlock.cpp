@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BaseBlock.h"
-
+#include "Engine/World.h"
 
 // Sets default values
 ABaseBlock::ABaseBlock()
@@ -14,6 +14,7 @@ ABaseBlock::ABaseBlock()
 	BlockMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
 	BlockMesh->SetNotifyRigidBodyCollision(true);
+	
 
 	//Finding the material and setting it to the block mesh
 	Walkable = false;
@@ -23,7 +24,7 @@ ABaseBlock::ABaseBlock()
 void ABaseBlock::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	PlayerCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
 
 // Called every frame

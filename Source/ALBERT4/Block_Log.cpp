@@ -25,12 +25,7 @@ void ABlock_Log::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	//if (PlayerCharacter->IsOverlappingActor(this))
-	//{
-	//	// Move the log to the next tile
-	//}
-	
-	
+	// move the goddamn log
 }
 
 
