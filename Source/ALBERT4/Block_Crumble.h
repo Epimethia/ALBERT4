@@ -28,7 +28,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void OnOverlapEnd(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		USoundBase* Audio;
 private:
 	FTimerHandle FallTimer;
 	UBoxComponent* Trigger;

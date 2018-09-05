@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Block_Crumble.h"
-
+#include "Engine.h"
 
 ABlock_Crumble::ABlock_Crumble() {
 	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Crumble_Block/Crumble_Block_Mesh.Crumble_Block_Mesh'")).Object);
@@ -26,13 +26,17 @@ ABlock_Crumble::ABlock_Crumble() {
 
 void ABlock_Crumble::Crumble() {
 	GetWorldTimerManager().SetTimer(FallTimer, this, &ABlock_Crumble::Fall, 1.0f, false);
+	UGameplayStatics::PlaySound2D(GetWorld(), Audio);
 }
 
 
 void ABlock_Crumble::Fall() {
+
 	BlockMesh->SetRelativeScale3D(FVector(0.995f, 0.995f, 0.995f));
 	BlockMesh->SetCollisionProfileName(FName("OverlapAll"));
 	BlockMesh->SetSimulatePhysics(true);
+	
+	
 }
 
 void ABlock_Crumble::OnOverlapBegin(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult){
@@ -42,6 +46,7 @@ void ABlock_Crumble::OnOverlapBegin(class UPrimitiveComponent* HitComp, class AA
 
 void ABlock_Crumble::OnOverlapEnd(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex){
 	UE_LOG(LogTemp, Warning, TEXT("No Longer Colliding"));
+	
 }
 
 
