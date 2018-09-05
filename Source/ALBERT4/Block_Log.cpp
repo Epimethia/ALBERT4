@@ -9,7 +9,7 @@ ABlock_Log::ABlock_Log()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Log_Block_Mesh.Log_Block_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Pushable_log.Pushable_log'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }
 
