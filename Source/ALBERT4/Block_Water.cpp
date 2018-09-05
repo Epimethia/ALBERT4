@@ -2,6 +2,7 @@
 #include "Block_Water.h"
 #include "Block_Interactable.h"
 #include "Block_Log.h"
+#include "Engine.h"
 
 // Sets default values
 ABlock_Water::ABlock_Water()
@@ -23,6 +24,7 @@ void ABlock_Water::BeginPlay()
 
 	// Set to water mesh at the start
 	BlockMesh->SetStaticMesh(WaterMesh);
+	
 }
 
 // Called every frame
@@ -47,7 +49,7 @@ void ABlock_Water::Tick(float DeltaTime)
 			BlockMesh->SetStaticMesh(LogWaterMesh);
 			// set as walkable
 			Walkable = true;
-
+			UGameplayStatics::PlaySound2D(GetWorld(), AudioCompo, 1.0f, 1.0f, 0.0f);
 			//UE_LOG(LogTemp, Warning, TEXT("Changing Mesh and deleting log."));
 		}
 	}		
