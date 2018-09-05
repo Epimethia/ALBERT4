@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\ALBERT4.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{FB26971C-40D9-47B6-97F0-B4603612D3E0}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\ALBERT4.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\ALBERT4Editor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{9A151E86-FD24-4DEE-8BF7-2A60CD9A2B83}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\ALBERT4">
+			<UniqueIdentifier>{5C26BC10-52D3-4BAD-B817-3C846E0FE077}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\ALBERT4\ALBERT4.Build.cs">
+			<Filter>Source\ALBERT4</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\ALBERT4\ALBERT4.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\ALBERT4.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\ALBERT4GameModeBase.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\ALBERT4GameModeBase.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\BaseBlock.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\BaseBlock.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\BerryPickUp.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\BerryPickUp.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Crumble.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Crumble.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_End.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_End.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Environment.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Environment.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Environment_1.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Environment_1.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Environment_2.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Environment_2.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Interactable.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Interactable.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Log.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Log.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_NotWalkable.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_NotWalkable.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Path.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Path.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Start.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Start.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Walkable.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Walkable.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\Block_Water.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\Block_Water.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\ALBERT4\PlayerCharacter.cpp">
+			<Filter>Source\ALBERT4</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\ALBERT4\PlayerCharacter.h">
+			<Filter>Source\ALBERT4</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
