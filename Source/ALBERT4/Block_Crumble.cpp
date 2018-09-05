@@ -4,11 +4,10 @@
 #include "Engine.h"
 
 ABlock_Crumble::ABlock_Crumble() {
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Crumble_Block/Crumble_Block_Mesh.Crumble_Block_Mesh'")).Object);
-	
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Crumble_Block/Block_Dirt.Block_Dirt'")).Object);
 	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("BlockTrigger"));
 	Trigger->SetBoxExtent(FVector(50.0f, 50.0f, 50.0f), true);
-	Trigger->SetRelativeLocation(FVector(0.0f, 0.0f, 150.0f));
+	Trigger->SetRelativeLocation(FVector(0.0f, 0.0f, 100.0f));
 	Trigger->SetVisibility(true);
 	Trigger->SetupAttachment(RootComponent);
 	Trigger->bDynamicObstacle = true;

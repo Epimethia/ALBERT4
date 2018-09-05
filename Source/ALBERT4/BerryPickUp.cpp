@@ -58,7 +58,7 @@ void ABerryPickUp::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	//Draws sphere with same radius as our trigger for visual represnetation
-	DrawDebugSphere(GetWorld(), GetActorLocation(), CollisionRadius, 20, FColor::Purple, false, -1, 0, 1);
+	//DrawDebugSphere(GetWorld(), GetActorLocation(), CollisionRadius, 20, FColor::Purple, false, -1, 0, 1);
 	
 }
 
