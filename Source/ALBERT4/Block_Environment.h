@@ -10,11 +10,11 @@
  * 
  */
 UCLASS()
-class ALBERT4_API ABlock_Environment : public ABlock_NotWalkable
+class ALBERT4_API ABlock_Environment_0 : public ABlock_NotWalkable
 {
 	GENERATED_BODY()
 
 public:
-	ABlock_Environment();
+	ABlock_Environment_0();
 	
 };

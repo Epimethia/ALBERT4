@@ -25,11 +25,13 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	USoundBase* AudioCompo;
+		
 private:
 	TArray<AActor*> OverlappingActors;
 	UStaticMesh* LogWaterMesh;
-	UStaticMesh* WaterMesh;
+	UStaticMesh* WaterMesh;	
 	bool LogWater; // Bool containing if the water block has had its mesh changed into a waterlog mesh
 	
 	
