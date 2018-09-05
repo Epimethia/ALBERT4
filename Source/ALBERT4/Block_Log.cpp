@@ -10,7 +10,7 @@ ABlock_Log::ABlock_Log()
 
 	//Setting the block mesh
 	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Log_Block_Mesh.Log_Block_Mesh'")).Object);
-
+	BlockMesh->SetCanEverAffectNavigation(false);
 }
 
 // Called when the game starts or when spawned

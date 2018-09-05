@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Engine/World.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -24,8 +25,12 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;	
 
-	
-	
+	UPROPERTY(BlueprintReadWrite, Category = MyCharacter)
+	int PlayerPoints;
+
+private:
+	TArray<AActor*> Berries;
+	UWorld* World;
 };
