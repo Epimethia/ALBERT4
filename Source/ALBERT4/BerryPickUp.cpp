@@ -14,16 +14,18 @@ ABerryPickUp::ABerryPickUp()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	PickUpMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PickUpMesh"));
+	PickUpMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Pickup/PickUpMesh.PickUpMesh'")).Object);
+
+	RootComponent = PickUpMesh;
+
 	bPickedUp = false;
 	//Initialisng Radius
 	CollisionRadius = 50.0f;
 	PickUpCollision = CreateDefaultSubobject<USphereComponent>(TEXT("PickUp"));
 	PickUpCollision->InitSphereRadius(CollisionRadius);
 	PickUpCollision->SetCollisionProfileName("Trigger");
-	RootComponent = PickUpCollision;
-
-	PickUpMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PickUpMesh"));
-	PickUpMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Pickup/PickUpMesh.PickUpMesh'")).Object);
 	PickUpCollision->SetupAttachment(RootComponent);
 
 	PickUpCollision->OnComponentBeginOverlap.AddDynamic(this, &ABerryPickUp::OnOverlapBegin);
@@ -66,11 +68,12 @@ void ABerryPickUp::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, cla
 {
 	if((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr))
 	{
-		
+		UGameplayStatics::PlaySound2D(GetWorld(), AudioComponent, 1.0f, 1.0f, 0.0f);
 		Destroy();
 		
 	}
-	//UGameplayStatics::PlaySound2D(GetWorld(), AudioComponent, 1.0f, 1.0f, 0.0f);
+
+	
 	Points += 20;
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FromInt(Points), true);
 }
