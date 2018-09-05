@@ -5,6 +5,7 @@
 #include "DrawDebugHelpers.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "PlayerCharacter.h"
 #include "ConstructorHelpers.h"
 #include "Engine/World.h"
 #include "Engine.h"
@@ -41,18 +42,18 @@ void ABerryPickUp::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	//Draws sphere with same radius as our trigger for visual represnetation
 	DrawDebugSphere(GetWorld(), GetActorLocation(), CollisionRadius, 20, FColor::Purple, false, -1, 0, 1);
-
-	
 	
 }
 
 void ABerryPickUp::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr))
-	{
-		
-		if(Destroy())
-		Points+= 20;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FromInt(Points), true);
+	{		
+		if (Destroy())
+		{			
+			//Points += 20;
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FromInt(Points), true);
+		}		
 	}
 }
+
