@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BaseBlock.h"
-
+#include "Engine/World.h"
 
 // Sets default values
 ABaseBlock::ABaseBlock()
@@ -23,7 +23,7 @@ ABaseBlock::ABaseBlock()
 void ABaseBlock::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	PlayerCharacter = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
 
 // Called every frame
