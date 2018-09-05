@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "BerryPickUp.generated.h"
 
+
 UCLASS()
 class ALBERT4_API ABerryPickUp : public AActor
 {
@@ -22,6 +23,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
 	//Declaring Collsion Component
 	UPROPERTY(VisibleAnywhere)
 	class USphereComponent* PickUpCollision;
@@ -36,5 +38,7 @@ public:
 	// Declare overlap begin function
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	USoundBase* AudioComponent;
 };
