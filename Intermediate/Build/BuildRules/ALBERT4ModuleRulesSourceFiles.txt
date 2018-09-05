@@ -1,3 +1,0 @@
-C:\Users\PlagueDoctor\Documents\repos\ALBERT4\Source\ALBERT4\ALBERT4.Build.cs
-C:\Users\PlagueDoctor\Documents\repos\ALBERT4\Source\ALBERT4.Target.cs
-C:\Users\PlagueDoctor\Documents\repos\ALBERT4\Source\ALBERT4Editor.Target.cs
