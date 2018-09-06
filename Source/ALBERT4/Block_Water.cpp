@@ -15,9 +15,10 @@ ABlock_Water::ABlock_Water()
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
 
 	// Set mesh variables for use later
-	LogWaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/WaterLog_Block_Mesh.WaterLog_Block_Mesh'")).Object;
+	LogWaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Pushable_log.Pushable_log'")).Object;
 	WaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/Water_Block_Mesh.Water_Block_Mesh'")).Object;
-	BlockMesh->SetStaticMesh(WaterMesh);		
+	BlockMesh->SetStaticMesh(WaterMesh);	
+	Walkable = true;
 }
 
 // Called when the game starts or when spawned
