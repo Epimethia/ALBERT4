@@ -47,10 +47,10 @@ void ABlock_Water::Tick(float DeltaTime)
 		{		
 			// check that the log is above the water
 			//UE_LOG(LogTemp, Warning, TEXT("Water: %s"), *GetActorLocation().ToString());
-			//UE_LOG(LogTemp, Warning, TEXT("Log: %s"), *OverlappingActors[0]->GetActorLocation().ToString());
-			if (OverlappingActors[0]->GetActorLocation() == GetActorLocation() + FVector(0.0f, 0.0f, 100.0f))
-			{
-				
+			UE_LOG(LogTemp, Warning, TEXT("Distance: %f"), FVector::Distance(OverlappingActors[0]->GetActorLocation(), GetActorLocation()));
+			
+			if (FVector::Distance(OverlappingActors[0]->GetActorLocation(), GetActorLocation()) < 135.0f)
+			{				
 				// Attempt to destroy the log
 				OverlappingActors[0]->Destroy();
 				//OverlappingActors.Empty();
