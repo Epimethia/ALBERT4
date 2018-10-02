@@ -26,7 +26,7 @@ ABerryPickUp::ABerryPickUp()
 	CollisionRadius = 50.0f;
 	PickUpCollision = CreateDefaultSubobject<USphereComponent>(TEXT("PickUp"));
 	PickUpCollision->InitSphereRadius(CollisionRadius);
-	PickUpCollision->SetCollisionProfileName("Trigger");
+	PickUpCollision->SetCollisionProfileName("OverlapAll");
 	PickUpCollision->SetupAttachment(RootComponent);
 
 	PickUpCollision->OnComponentBeginOverlap.AddDynamic(this, &ABerryPickUp::OnOverlapBegin);
