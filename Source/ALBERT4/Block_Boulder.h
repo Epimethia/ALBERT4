@@ -19,7 +19,7 @@ class ALBERT4_API ABlock_Boulder : public ABlock_Interactable
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void Fall();
+	UFUNCTION(BlueprintCallable) void Activate();
 
 public:
 	// Called every frame
@@ -27,8 +27,7 @@ public:
 	UPROPERTY(EditAnywhere) bool m_bRolling;
 
 private:
-	float t;
-	FVector PrevPos;
 	FVector Dir;
 	bool m_bFalling;
+	bool m_bIsActive;
 };
