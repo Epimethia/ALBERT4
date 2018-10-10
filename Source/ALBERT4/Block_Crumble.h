@@ -6,6 +6,8 @@
 #include "Block_Walkable.h"
 #include "TimerManager.h"
 #include "Components/BoxComponent.h"
+#include "DestructibleActor.h"
+#include "DestructibleComponent.h"
 #include "Block_Crumble.generated.h"
 
 /**
@@ -33,4 +35,5 @@ public:
 private:
 	FTimerHandle FallTimer;
 	UBoxComponent* Trigger;
+	UDestructibleComponent* CrumbleMesh;
 };
