@@ -5,12 +5,14 @@
 
 ABlock_Boulder::ABlock_Boulder() {
 	PrimaryActorTick.bCanEverTick = true;
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Boulder_Block/Boulder_Block_Mesh.Boulder_Block_Mesh'")).Object);
 }
 
 void ABlock_Boulder::BeginPlay() {
 	Super::BeginPlay();
 	m_bFalling = false;
-	m_bIsActive = true;
+	m_bIsActive = false;
+	
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
 	Dir = GetActorRotation().Vector();
 	Dir.Normalize();
@@ -46,7 +48,7 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 		FVector start = GetActorLocation();
 		start.Z += 50.0f;
 		fw.Z += 50.0f;
-		DrawDebugLine(GetWorld(), fw, start, FColor::Emerald, false, -1.0, 0, 10);
+		//DrawDebugLine(GetWorld(), fw, start, FColor::Emerald, false, -1.0, 0, 10);
 		bool ForwardCollision = GetWorld()->LineTraceSingleByChannel(
 			r, start, fw, ECC_PhysicsBody, &p
 		);

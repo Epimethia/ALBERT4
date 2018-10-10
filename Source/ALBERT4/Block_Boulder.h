@@ -25,9 +25,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	UPROPERTY(EditAnywhere) bool m_bRolling;
+	UPROPERTY(BlueprintReadWrite) FVector Dir;
 
 private:
-	FVector Dir;
 	bool m_bFalling;
 	bool m_bIsActive;
 };
