@@ -24,8 +24,6 @@ void ABlock_Log::BeginPlay()
 void ABlock_Log::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	// move the goddamn log
 }
 
 
