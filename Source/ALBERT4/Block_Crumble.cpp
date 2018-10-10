@@ -1,10 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Block_Crumble.h"
+#include "DestructibleMesh.h"
 #include "Engine.h"
 
 ABlock_Crumble::ABlock_Crumble() {
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Crumble_Block/Block_Dirt.Block_Dirt'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Crumble_Block/Crumbling.Crumbling'")).Object);
 	Trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("BlockTrigger"));
 	Trigger->SetBoxExtent(FVector(50.0f, 50.0f, 50.0f), true);
 	Trigger->SetRelativeLocation(FVector(0.0f, 0.0f, 100.0f));
@@ -13,9 +14,13 @@ ABlock_Crumble::ABlock_Crumble() {
 	Trigger->bDynamicObstacle = true;
 	Trigger->bGenerateOverlapEvents = true;
 	Trigger->SetCanEverAffectNavigation(false);
+	BlockMesh->SetVisibility(false);
 
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapBegin);
 	Trigger->OnComponentEndOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapEnd);
+	CrumbleMesh = CreateDefaultSubobject<UDestructibleComponent>(TEXT("CrumbleMesh"));
+	CrumbleMesh->SetDestructibleMesh(ConstructorHelpers::FObjectFinder<UDestructibleMesh>(TEXT("DestructibleMesh'/Game/Assets/Blocks/Crumble_Block/Crumbling_DM.Crumbling_DM'")).Object);
+	CrumbleMesh->SetupAttachment(RootComponent);
 
 	Walkable = true;
 
@@ -33,7 +38,9 @@ void ABlock_Crumble::Fall() {
 
 	BlockMesh->SetRelativeScale3D(FVector(0.995f, 0.995f, 0.995f));
 	BlockMesh->SetCollisionProfileName(FName("OverlapAll"));
-	BlockMesh->SetSimulatePhysics(true);
+	//BlockMesh->SetSimulatePhysics(true);
+	CrumbleMesh->Activate();
+	CrumbleMesh->ApplyDamage(10000.0f, GetActorLocation(), FVector(0.0f, 0.0f, -1.0f), 1000000.0f);
 	
 	
 }
