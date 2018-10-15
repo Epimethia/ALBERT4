@@ -21,7 +21,7 @@ ABlock_Log::ABlock_Log()
 	BlockMesh->SetRelativeScale3D(scalingVector);
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Pushable_log.Pushable_log'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/MESH_Obstacle_Log.MESH_Obstacle_Log'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }
 

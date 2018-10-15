@@ -25,7 +25,7 @@ ABlock_Crumble::ABlock_Crumble() {
 }
 
 void ABlock_Crumble::Crumble() {
-	GetWorldTimerManager().SetTimer(FallTimer, this, &ABlock_Crumble::Fall, 1.0f, false);
+	GetWorldTimerManager().SetTimer(FallTimer, this, &ABlock_Crumble::Fall, 2.0f, false);
 	UGameplayStatics::PlaySound2D(GetWorld(), Audio);
 }
 
@@ -38,12 +38,12 @@ void ABlock_Crumble::Fall() {
 }
 
 void ABlock_Crumble::OnOverlapBegin(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult){
-	UE_LOG(LogTemp, Warning, TEXT("Colliding"));
+	//UE_LOG(LogTemp, Warning, TEXT("Colliding"));
 	Crumble();
 }
 
 void ABlock_Crumble::OnOverlapEnd(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex){
-	UE_LOG(LogTemp, Warning, TEXT("No Longer Colliding"));
+	//UE_LOG(LogTemp, Warning, TEXT("No Longer Colliding"));
 	
 }
 
