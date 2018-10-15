@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/BoxComponent.h"
+//#include "Components/BoxComponent.h"
 #include "Block_Interactable.h"
 #include "Block_Log.generated.h"
 
@@ -29,6 +29,7 @@ public:
 	
 private:
 	TArray<AActor*> OverlappingActors;
-	UBoxComponent* BoxCollider = nullptr;
+	
+	//UBoxComponent* BoxCollider = nullptr;
 	
 };

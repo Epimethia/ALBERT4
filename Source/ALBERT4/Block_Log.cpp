@@ -10,10 +10,10 @@ ABlock_Log::ABlock_Log()
 	FVector scalingVector = FVector(0.75f, 0.75f, 0.80f); // Vector used to calculate the correct scaling for the box collider and mesh
 
 	// Setup box collider
-	BoxCollider = CreateDefaultSubobject<UBoxComponent>(FName("BoxCollider"));	
-	BoxCollider->AttachToComponent(BlockMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-	BoxCollider->SetBoxExtent(FVector(-50.0f, -50.0f, 50.0f) * (FVector(2.0f, 2.0f, 2.0f) - scalingVector));		
-	BoxCollider->SetCollisionProfileName(FName("BlockAll"));	
+	//BoxCollider = CreateDefaultSubobject<UBoxComponent>(FName("BoxCollider"));	
+	//BoxCollider->AttachToComponent(BlockMesh, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+	//BoxCollider->SetBoxExtent(FVector(-50.0f, -50.0f, 50.0f) * (FVector(2.0f, 2.0f, 2.0f) - scalingVector));		
+	//BoxCollider->SetCollisionProfileName(FName("BlockAll"));	
 
 	// Setup collision
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
