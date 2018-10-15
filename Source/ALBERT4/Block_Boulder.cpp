@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Block_Boulder.h"
+#include "Engine/World.h"
 #include "DrawDebugHelpers.h"
 
 ABlock_Boulder::ABlock_Boulder() {
@@ -26,15 +27,14 @@ void ABlock_Boulder::BeginPlay() {
 void ABlock_Boulder::Tick(float _DeltaTime) {
 	if (m_bIsActive) {
 		
-		FHitResult r;		
-		FCollisionQueryParams p();
+		FHitResult r;			
 
 		//raycast downwards to see if there is something underneath the boulder
 		bool FrontRightCollision = GetWorld()->LineTraceSingleByChannel(
-			r, GetActorLocation(), GetActorLocation() + FVector(49.0f, 49.0f, -1.0f), ECC_PhysicsBody, &p
+			r, GetActorLocation(), GetActorLocation() + FVector(49.0f, 49.0f, -1.0f), ECC_PhysicsBody, FCollisionQueryParams::DefaultQueryParam
 		);
 		bool BackLeftCollision = GetWorld()->LineTraceSingleByChannel(
-			r, GetActorLocation(), GetActorLocation() + FVector(-49.0f, -49.0f, -1.0f), ECC_PhysicsBody, &p
+			r, GetActorLocation(), GetActorLocation() + FVector(-49.0f, -49.0f, -1.0f), ECC_PhysicsBody, FCollisionQueryParams::DefaultQueryParam
 		);
 
 		if (FrontRightCollision || BackLeftCollision) {
@@ -51,7 +51,7 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 		fw.Z += 50.0f;
 		//DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
 		bool ForwardCollision = GetWorld()->LineTraceSingleByChannel(
-			r, start, fw, ECC_PhysicsBody, &p
+			r, start, fw, ECC_PhysicsBody, FCollisionQueryParams::DefaultQueryParam
 		);			
 		
 		if (ForwardCollision && FVector::DistXY(start, r.Actor->GetActorLocation()) <= 100) {
@@ -71,7 +71,7 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 		fw.Z -= 50.0f;
 		//DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
 		ForwardCollision = GetWorld()->LineTraceSingleByChannel(
-			r, start, fw, ECC_PhysicsBody, &p
+			r, start, fw, ECC_PhysicsBody, FCollisionQueryParams::DefaultQueryParam
 		);
 
 		// Find out if the block is walkable
