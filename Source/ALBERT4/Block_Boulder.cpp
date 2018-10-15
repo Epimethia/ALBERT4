@@ -26,7 +26,7 @@ void ABlock_Boulder::BeginPlay() {
 void ABlock_Boulder::Tick(float _DeltaTime) {
 	if (m_bIsActive) {
 		
-		FHitResult r;
+		FHitResult r;		
 		FCollisionQueryParams p();
 
 		//raycast downwards to see if there is something underneath the boulder
@@ -44,21 +44,52 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 			m_bFalling = true;
 		}
 
-		FVector fw = GetActorLocation() + (Dir * 51.0f);
+		// Check directly in front of the boulder
+		FVector fw = GetActorLocation() + (Dir * 100.0f);
 		FVector start = GetActorLocation();
 		start.Z += 50.0f;
 		fw.Z += 50.0f;
-		//DrawDebugLine(GetWorld(), fw, start, FColor::Emerald, false, -1.0, 0, 10);
+		//DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
 		bool ForwardCollision = GetWorld()->LineTraceSingleByChannel(
 			r, start, fw, ECC_PhysicsBody, &p
-		);
-
-		if (ForwardCollision) {
+		);			
+		
+		if (ForwardCollision && FVector::DistXY(start, r.Actor->GetActorLocation()) <= 100) {
+			//UE_LOG(LogTemp, Warning, TEXT("%f"), FVector::DistXY(start, r.Actor->GetActorLocation()));
 			if (r.GetActor()->IsA(ABlock_Boulder::StaticClass())) {
 				r.GetActor()->Destroy();
 				Destroy();
 			}
 			m_bIsActive = false;
+			return;
+		}
+
+		// Check the block in front of the boulder for its walkable status
+		fw = GetActorLocation() + (Dir * 100.0f);
+		start = GetActorLocation();
+		start.Z += 50.0f;
+		fw.Z -= 50.0f;
+		DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
+		ForwardCollision = GetWorld()->LineTraceSingleByChannel(
+			r, start, fw, ECC_PhysicsBody, &p
+		);
+
+		// Find out if the block is walkable
+		if (ForwardCollision)
+		{
+			// Cast to walkable block
+			ABaseBlock* adjacentBlock = static_cast<ABaseBlock*>(r.GetActor());
+			// Check if the cast was successful and if the block is walkable
+			if (adjacentBlock != nullptr && !adjacentBlock->Walkable)
+			{			
+				UE_LOG(LogTemp, Warning, TEXT("%f"), FVector::DistXY(start, r.Actor->GetActorLocation()));
+				// If the block is not walkable, check how far we're from it and set the boulder as inactive as neccessary 
+				if (FVector::DistXY(start, r.Actor->GetActorLocation()) <= 101.9f) {
+										
+					m_bIsActive = false;
+					return;
+				}
+			}
 		}
 
 		float t = 0.03f;

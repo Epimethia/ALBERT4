@@ -9,7 +9,7 @@ ABlock_LadderTree::ABlock_LadderTree()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/Pushable_log.Pushable_log'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Ladder_Block/Long_tree.Long_tree'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }
 
