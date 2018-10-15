@@ -71,16 +71,5 @@ void ABerryPickUp::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, cla
 		Destroy();
 		
 	}
-
-	Points += 20;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FromInt(Points), true);
-	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr))
-	{		
-		if (Destroy())
-		{			
-			//Points += 20;
-			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::FromInt(Points), true);
-		}		
-	}
 }
 

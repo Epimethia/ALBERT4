@@ -23,6 +23,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void Crumble();
+
+	UFUNCTION(BlueprintCallable)
 	void Fall();
 
 	UFUNCTION(BlueprintCallable)
