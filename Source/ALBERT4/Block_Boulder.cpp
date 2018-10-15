@@ -69,7 +69,7 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 		start = GetActorLocation();
 		start.Z += 50.0f;
 		fw.Z -= 50.0f;
-		DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
+		//DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
 		ForwardCollision = GetWorld()->LineTraceSingleByChannel(
 			r, start, fw, ECC_PhysicsBody, &p
 		);
