@@ -7,7 +7,7 @@ ABlock_Environment_2::ABlock_Environment_2() {
 	Walkable = false;
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/Environment_Block_2_Mesh.Environment_Block_2_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/MESH_Unwalkable_Stump.MESH_Unwalkable_Stump'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }
 

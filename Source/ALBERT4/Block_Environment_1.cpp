@@ -7,6 +7,6 @@ ABlock_Environment_1::ABlock_Environment_1() {
 	Walkable = false;
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/Environment_Block_1_Mesh.Environment_Block_1_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/MESH_Unwalkable_Rocks.MESH_Unwalkable_Rocks'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }

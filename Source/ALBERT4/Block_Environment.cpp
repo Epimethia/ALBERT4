@@ -8,6 +8,6 @@ ABlock_Environment_0::ABlock_Environment_0() {
 	Walkable = false;
 
 	//Setting the block mesh
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/Environment_Block_0_Mesh.Environment_Block_0_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Environment_Block/MESH_Unwalkable_Shrub.MESH_Unwalkable_Shrub'")).Object);
 	BlockMesh->SetCanEverAffectNavigation(false);
 }

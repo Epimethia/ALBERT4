@@ -6,5 +6,5 @@
 
 
 ABlock_Path::ABlock_Path() {
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Path_Block/Path_Block_Mesh.Path_Block_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Path_Block/MESH_Walkable_Glound.MESH_Walkable_Glound'")).Object);
 }

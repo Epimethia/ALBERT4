@@ -14,13 +14,9 @@ ABlock_Crumble::ABlock_Crumble() {
 	Trigger->bDynamicObstacle = true;
 	Trigger->bGenerateOverlapEvents = true;
 	Trigger->SetCanEverAffectNavigation(false);
-	BlockMesh->SetVisibility(false);
 
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapBegin);
 	Trigger->OnComponentEndOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapEnd);
-	CrumbleMesh = CreateDefaultSubobject<UDestructibleComponent>(TEXT("CrumbleMesh"));
-	CrumbleMesh->SetDestructibleMesh(ConstructorHelpers::FObjectFinder<UDestructibleMesh>(TEXT("DestructibleMesh'/Game/Assets/Blocks/Crumble_Block/Crumbling_DM.Crumbling_DM'")).Object);
-	CrumbleMesh->SetupAttachment(RootComponent);
 
 	Walkable = true;
 
@@ -38,11 +34,7 @@ void ABlock_Crumble::Fall() {
 
 	BlockMesh->SetRelativeScale3D(FVector(0.995f, 0.995f, 0.995f));
 	BlockMesh->SetCollisionProfileName(FName("OverlapAll"));
-	//BlockMesh->SetSimulatePhysics(true);
-	CrumbleMesh->Activate();
-	CrumbleMesh->ApplyDamage(10000.0f, GetActorLocation(), FVector(0.0f, 0.0f, -1.0f), 1000000.0f);
-	
-	
+	BlockMesh->SetSimulatePhysics(true);	
 }
 
 void ABlock_Crumble::OnOverlapBegin(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult){

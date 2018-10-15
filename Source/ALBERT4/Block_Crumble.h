@@ -35,5 +35,5 @@ public:
 private:
 	FTimerHandle FallTimer;
 	UBoxComponent* Trigger;
-	UDestructibleComponent* CrumbleMesh;
+	//UDestructibleComponent* CrumbleMesh;
 };
