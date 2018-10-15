@@ -18,7 +18,7 @@ ABlock_Water::ABlock_Water()
 	LogWaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Log_Block/MESH_Obstacle_Log.MESH_Obstacle_Log'")).Object;
 	WaterMesh = ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Water_Block/Water_Block_Mesh.Water_Block_Mesh'")).Object;
 	BlockMesh->SetStaticMesh(WaterMesh);	
-	Walkable = true;
+	Walkable = false;
 }
 
 // Called when the game starts or when spawned

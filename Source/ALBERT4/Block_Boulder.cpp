@@ -2,6 +2,7 @@
 
 #include "Block_Boulder.h"
 #include "Block_Crumble.h"
+#include "Engine/World.h"
 #include "DrawDebugHelpers.h"
 
 ABlock_Boulder::ABlock_Boulder() {
@@ -28,8 +29,7 @@ void ABlock_Boulder::BeginPlay() {
 void ABlock_Boulder::Tick(float _DeltaTime) {
 	if (m_bIsActive) {
 		
-		FHitResult r;		
-		//FCollisionQueryParams(FName("Trace"), true, this);
+		FHitResult r;			
 
 		//raycast downwards to see if there is something underneath the boulder
 		bool FrontRightCollision = GetWorld()->LineTraceSingleByChannel(
@@ -72,7 +72,7 @@ void ABlock_Boulder::Tick(float _DeltaTime) {
 		start = GetActorLocation();
 		start.Z += 50.0f;
 		fw.Z -= 50.0f;
-		DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
+		//DrawDebugLine(GetWorld(), start, fw, FColor::Emerald, false, -1.0, 0, 10);
 		ForwardCollision = GetWorld()->LineTraceSingleByChannel(
 			r, start, fw, ECC_PhysicsBody, FCollisionQueryParams(FName("Trace"), true, this)
 		);
