@@ -7,7 +7,7 @@ ABlock_Log::ABlock_Log()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	FVector scalingVector = FVector(0.75f, 0.75f, 0.80f); // Vector used to calculate the correct scaling for the box collider and mesh
+	FVector scalingVector = FVector(0.75f, 0.75f, 0.75f); // Vector used to calculate the correct scaling for the box collider and mesh
 
 	// Setup box collider
 	//BoxCollider = CreateDefaultSubobject<UBoxComponent>(FName("BoxCollider"));	
