@@ -17,7 +17,7 @@ ABlock_Log::ABlock_Log()
 
 	// Setup collision
 	BlockMesh->SetCollisionProfileName(FName("BlockAll"));
-	BlockMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel1, ECollisionResponse::ECR_Ignore);	
+	BlockMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel1, ECollisionResponse::ECR_Block);	
 	BlockMesh->SetRelativeScale3D(scalingVector);
 
 	//Setting the block mesh
