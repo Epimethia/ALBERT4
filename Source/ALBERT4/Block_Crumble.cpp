@@ -16,6 +16,7 @@ ABlock_Crumble::ABlock_Crumble() {
 	Trigger->bDynamicObstacle = true;
 	Trigger->bGenerateOverlapEvents = true;
 	Trigger->SetCanEverAffectNavigation(false);
+	Trigger->SetCollisionResponseToChannel(ECollisionChannel::ECC_GameTraceChannel1, ECollisionResponse::ECR_Ignore);
 
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapBegin);
 	Trigger->OnComponentEndOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapEnd);
