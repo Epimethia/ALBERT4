@@ -7,7 +7,7 @@
 
 ABlock_Boulder::ABlock_Boulder() {
 	PrimaryActorTick.bCanEverTick = true;
-	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Boulder_Block/Boulder_Block_Mesh.Boulder_Block_Mesh'")).Object);
+	BlockMesh->SetStaticMesh(ConstructorHelpers::FObjectFinder<UStaticMesh>(TEXT("StaticMesh'/Game/Assets/Blocks/Boulder_Block/MESH_Obstacle_Bloulder.MESH_Obstacle_Bloulder'")).Object);
 }
 
 void ABlock_Boulder::BeginPlay() {
