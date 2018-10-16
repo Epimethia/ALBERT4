@@ -33,9 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnOverlapEnd(class UPrimitiveComponent* HitComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		USoundBase* Audio;
+		USoundBase* CrumbleSound;
 private:
 	FTimerHandle FallTimer;
 	UBoxComponent* Trigger;
-	//UDestructibleComponent* CrumbleMesh;
+	bool isFalling;
 };

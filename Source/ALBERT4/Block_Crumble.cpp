@@ -4,6 +4,7 @@
 #include "DestructibleMesh.h"
 #include "Engine.h"
 #include "Block_Log.h"
+
 #include "Block_Boulder.h"
 
 ABlock_Crumble::ABlock_Crumble() {
@@ -21,8 +22,11 @@ ABlock_Crumble::ABlock_Crumble() {
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapBegin);
 	Trigger->OnComponentEndOverlap.AddDynamic(this, &ABlock_Crumble::OnOverlapEnd);
 
-	Walkable = true;
+	CrumbleSound = ConstructorHelpers::FObjectFinder<USoundBase>(TEXT("SoundWave'/Game/Assets/Sounds/BrickCrumble.BrickCrumble'")).Object;
 
+
+	Walkable = true;
+	isFalling = false;
 	SetActorLocation(FVector(0.0f, 0.0f, 0.0f));
 	SetActorTickEnabled(true);
 }
@@ -34,7 +38,10 @@ void ABlock_Crumble::Crumble() {
 
 
 void ABlock_Crumble::Fall() {
-	UGameplayStatics::PlaySound2D(GetWorld(), Audio);
+	if (!isFalling){
+		UGameplayStatics::PlaySound2D(GetWorld(), CrumbleSound);
+		isFalling = true;
+	}
 	BlockMesh->SetRelativeScale3D(FVector(0.995f, 0.995f, 0.995f));
 	BlockMesh->SetCollisionProfileName(FName("OverlapAll"));
 	BlockMesh->SetSimulatePhysics(true);	
